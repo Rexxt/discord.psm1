@@ -7,3 +7,14 @@ function Get-DiscordOnline() {
         return $false
     }
 }
+
+class DiscordUser {
+    [String]$token
+    DiscordUser([String]$tk) {
+        $this.token = $tk
+    }
+    [String] BotInit([String]$botinitfile) {
+        $jsonoutput = (Get-Content $botinitfile | ConvertFrom-Json)
+        return $jsonoutput
+    }
+}
